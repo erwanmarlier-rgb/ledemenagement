@@ -8,7 +8,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 let communes = [];
 let cercles = [];
 
-fetch('data/communes.json')
+fetch('communes.json')
   .then(reponse => reponse.json())
   .then(donnees => {
     communes = donnees;
