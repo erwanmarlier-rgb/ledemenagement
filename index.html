@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le déménagement</title>
+
+  <!-- Leaflet : bibliothèque de carte interactive (chargée depuis internet) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Nos propres styles (à créer ensuite) -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <!-- PANNEAU LATÉRAL GAUCHE : les filtres -->
+  <div id="panneau">
+
+    <h2>Le Déménagement</h2>
+
+    <!-- Filtre 1 : temps de trajet depuis Lambersart -->
+    <div class="filtre">
+      <label>Temps depuis Lambersart</label>
+      <span id="val-temps">10h00</span>
+      <input type="range" id="filtre-temps" min="0" max="600" value="600" step="30"/>
+    </div>
+
+    <!-- Filtre 2 : littoral -->
+    <div class="filtre">
+      <label>Proximité littoral</label>
+      <select id="filtre-littoral">
+        <option value="tous">Toutes communes</option>
+        <option value="direct">Littoral direct</option>
+        <option value="proche">Proche littoral</option>
+      </select>
+    </div>
+
+    <!-- Filtre 3 : distance hôpital -->
+    <div class="filtre">
+      <label>Distance hôpital max</label>
+      <span id="val-hopital">40 km</span>
+      <input type="range" id="filtre-hopital" min="0" max="40" value="40" step="5"/>
+    </div>
+
+    <!-- Filtre 4 : prix m² -->
+    <div class="filtre">
+      <label>Prix médian /m² max</label>
+      <span id="val-prix">8000 €</span>
+      <input type="range" id="filtre-prix" min="500" max="8000" value="8000" step="500"/>
+    </div>
+	
+	<!-- Filtre 5 : bon vivre -->
+    <div class="filtre">
+      <label>Label bon vivre</label>
+      <select id="filtre-bonvivre">
+        <option value="tous">Toutes communes</option>
+        <option value="labelisee">Labélisée</option>
+        <option value="labelisable">Labélisable</option>
+      </select>
+    </div>
+
+    <!-- Compteur de résultats -->
+    <div id="compteur">— communes affichées</div>
+
+  </div>
+
+  <!-- CARTE : prend tout l'espace restant -->
+  <div id="carte"></div>
+
+  <!-- Notre logique JavaScript (à créer ensuite) -->
+  <script src="app.js"></script>
+
+</body>
+</html>

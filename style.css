@@ -1,0 +1,159 @@
+/* ============================================================
+   MISE EN PAGE GÉNÉRALE
+   Corps de page : panneau gauche + carte droite, côte à côte
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;          /* panneau et carte côte à côte */
+  height: 100vh;          /* occupe toute la hauteur de l'écran */
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  background: #f0f0f0;
+}
+
+/* ============================================================
+   PANNEAU LATÉRAL GAUCHE
+   ============================================================ */
+#panneau {
+  width: 280px;            /* largeur fixe */
+  min-width: 280px;        /* ne rétrécit pas si la fenêtre est petite */
+  height: 100vh;
+  overflow-y: auto;        /* scroll si le contenu dépasse */
+  background: #ffffff;
+  padding: 20px 15px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;  /* empile les filtres verticalement */
+  gap: 20px;               /* espace entre chaque filtre */
+  z-index: 1000;           /* passe au-dessus de la carte */
+}
+
+#panneau h2 {
+  font-size: 18px;
+  color: #2c3e50;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* ============================================================
+   BLOCS DE FILTRES
+   ============================================================ */
+.filtre {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filtre label {
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Valeur affichée à côté du slider (ex: "120 min") */
+.filtre span {
+  font-size: 13px;
+  color: #7f8c8d;
+  text-align: right;
+}
+
+/* Sliders */
+.filtre input[type="range"] {
+  width: 100%;
+  accent-color: #2980b9;   /* couleur du curseur et de la barre */
+  cursor: pointer;
+}
+
+/* Menus déroulants */
+.filtre select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #2c3e50;
+  cursor: pointer;
+}
+
+.filtre select:hover {
+  border-color: #2980b9;
+}
+
+/* ============================================================
+   COMPTEUR DE RÉSULTATS
+   ============================================================ */
+#compteur {
+  margin-top: auto;        /* pousse le compteur tout en bas du panneau */
+  text-align: center;
+  font-size: 13px;
+  color: #7f8c8d;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* ============================================================
+   CARTE LEAFLET
+   ============================================================ */
+#carte {
+  flex: 1;                 /* prend tout l'espace restant à droite */
+  height: 100vh;
+}
+
+/* ============================================================
+   POPUPS LEAFLET (clic sur un cercle)
+   ============================================================ */
+.leaflet-popup-content {
+  font-size: 13px;
+  line-height: 1.6;
+  min-width: 200px;
+}
+
+.leaflet-popup-content b {
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+.popup h3 {
+  margin: 0 0 8px 0;
+  font-size: 1em;
+  color: #264653;
+}
+
+.popup table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85em;
+}
+
+.popup td {
+  padding: 3px 6px;
+}
+
+.popup td:first-child {
+  color: #666;
+  white-space: nowrap;
+}
+
+
+/* Lien LeBonCoin dans le popup */
+.lien-lbc {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  background: #e74c3c;
+  color: white !important;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.lien-lbc:hover {
+  background: #c0392b;
+}
