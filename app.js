@@ -103,8 +103,8 @@ function appliquerFiltres() {
     if (c.prix_m2 > maxPrix) return false;
     if (littoral == 'direct' && c.littoral !== 'direct') return false;
 	if (littoral == 'proche' && c.littoral == 'non') return false;
-    if (bonvivre === 'labelisee'   && c.statut !== 'labelisee') return false;
-    if (bonvivre === 'labelisable' && c.statut == 'aucun') return false;
+    if (bonvivre === 'labellisee'   && c.statut !== 'labellisee') return false;
+    if (bonvivre === 'labellisable' && c.statut == 'aucun') return false;
     return true;
   });
 
